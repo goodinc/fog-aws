@@ -567,7 +567,8 @@ module Fog
                 encoding = "aws-chunked, identity"
               end
 
-              params[:headers]['Content-Encoding']  = encoding
+              # removing content-encoding headers entirely
+              # params[:headers]['Content-Encoding']  = encoding
             else
               params[:headers]['x-amz-content-sha256'] ||= Digest::SHA256.hexdigest(params[:body] || '')
             end
